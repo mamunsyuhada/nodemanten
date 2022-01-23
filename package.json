@@ -39,5 +39,6 @@
     "pretty-logger": "^0.1.2",
     "rate-limit-mongo": "^2.3.2",
     "uuid": "^8.3.2"
-  }
+  },
+  "pre-commit": [ "lint" ]
 }
