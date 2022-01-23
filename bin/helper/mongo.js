@@ -9,9 +9,9 @@ module.exports = {
       useNewUrlParser: true,
       useUnifiedTopology: true
     }).then(() => {
-      logger.info(ctx, `Successfully connected to the database ${mongooUri}`);
+      logger.info(ctx, `Successfully connected to db ${mongooUri}`);
     }).catch(err => {
-      logger.error(ctx, 'Could not connect to the database. Exiting now...', err);
+      logger.error(ctx, `Failed to connect db ${mongooUri}`, err);
       process.exit();
     });
   }

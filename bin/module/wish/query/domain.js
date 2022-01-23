@@ -20,7 +20,6 @@ const listWishes = async ({ q={}, sort, size, page, }) => {
     MaxPage: Math.ceil(countData/size)
   };
 
-
   return pagination({ meta, data, message: 'success to list wish, thankyou' });
 };
 

@@ -4,6 +4,7 @@
   "description": "my weeding's server side",
   "main": "index.js",
   "scripts": {
+    "start": "node bin/index.js",
     "dev": "npx nodemon bin/index.js",
     "lint": "npx eslint bin",
     "lintfix": "npm run lint -- --fix",
