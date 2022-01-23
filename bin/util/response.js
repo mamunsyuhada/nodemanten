@@ -22,8 +22,23 @@ const ok = ({ data = '', code = OkResponsesCode.Ok, message = 'your request is s
   return { error: null, data, code, message, };
 };
 
-const wrapper = (res, payload, code = OkResponsesCode.Ok) => {
-  return res.status(code).send(payload);
+const pagination = ({
+  meta,
+  data = '',
+  code = OkResponsesCode.Ok,
+  message = 'pagination request is success'
+}) => {
+  return {
+    error: null,
+    meta,
+    data,
+    code,
+    message,
+  };
+};
+
+const wrapper = (res, payload) => {
+  return res.status(payload.code).send(payload);
 };
 
 const send = async ({ req, res, domain, schema = {} }) => {
@@ -31,14 +46,15 @@ const send = async ({ req, res, domain, schema = {} }) => {
   const { error, value } = schema.validate(req.payload);
   if (error) {
     const message = error.details[0].message.replace(/"/g, '');
-    return wrapper(res, err({ message }), ErrorResponsesCode.BadRequest);
+    return wrapper(res, err({ message }));
   }
   const data = await domain(value);
-  return wrapper(res, data, data.code);
+  return wrapper(res, data);
 };
 
 module.exports = {
   ok,
+  pagination,
   err,
   send,
   ErrorResponsesCode,
