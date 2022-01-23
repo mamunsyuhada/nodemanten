@@ -1,0 +1,38 @@
+{
+  "name": "nodemanten",
+  "version": "0.0.1",
+  "description": "my weeding's server side",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon bin/index.js",
+    "lint": "npx eslint bin",
+    "lintfix": "npm run lint -- --fix",
+    "pm2": "pm2 start processes.json --no-daemon"
+  },
+  "keywords": [
+    "manten",
+    "weeding"
+  ],
+  "author": "Imam Syuhada",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "nodemon": "^2.0.15",
+    "pre-commit": "^1.2.2"
+  },
+  "volta": {
+    "node": "14.18.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "helmet": "^5.0.2",
+    "http": "0.0.1-security",
+    "joi": "^17.5.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.1.7",
+    "morgan": "^1.10.0",
+    "pretty-logger": "^0.1.2"
+  }
+}
