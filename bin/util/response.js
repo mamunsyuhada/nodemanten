@@ -15,11 +15,11 @@ const OkResponsesCode = {
 };
 
 const err = ({ code = ErrorResponsesCode.BadRequest, message = 'somethings get error' }) => {
-  return { err: true, data: null, code, message };
+  return { error: true, data: null, code, message };
 };
 
 const ok = ({ data = '', code = OkResponsesCode.Ok, message = 'your request is success' }) => {
-  return { err: null, data, code, message, };
+  return { error: null, data, code, message, };
 };
 
 const wrapper = (res, payload, code = OkResponsesCode.Ok) => {
