@@ -2,7 +2,8 @@
 
 ## Schema DB
 
-### [wishes's document]
+### [----wishes's document----](https://github.com/mamunsyuhada/nodemanten/blob/main/bin/module/wish/entity.js)
+
 ```json
 {
     "wishId": "69da0078-f376-47e1-a452-6e7125abff83",
