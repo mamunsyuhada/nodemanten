@@ -3,11 +3,12 @@ const app = require('./server/app');
 const mongoo = require('./helper/mongo');
 const logger = require('./util/logger');
 const { appPort } = require('./config/global');
+const project = require('../package.json');
 
 const server = http.createServer(app);
 server.listen(appPort, () => {
   const ctx = 'index.js-createServer';
-  logger.info(ctx, `Starting at http://localhost:${appPort}`);
+  logger.info(ctx, `Starting ${project.name}-server at http://localhost:${appPort}`);
   mongoo.init();
 });
 
