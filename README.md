@@ -33,6 +33,7 @@ npm i && npm run dev
 - [x] Post a wish
 - [x] List wishes
 - [x] Bruteforce or Ratelimiter
+- [ ] Swagger APIs Documentation
 - [ ] Dockerize
 - [ ] Create Deployment (Github Action)
 - [ ] Test Coverage
