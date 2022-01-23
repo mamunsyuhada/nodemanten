@@ -12,5 +12,6 @@ npm i && npm run dev
 
 - [x] Post a wish
 - [x] List wishes
+- [x] Bruteforce or Ratelimiter
 - [ ] Dockerize
 - [ ] Create Deployment (Github Action)
