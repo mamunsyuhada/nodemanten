@@ -34,3 +34,4 @@ npm i && npm run dev
 - [x] Bruteforce or Ratelimiter
 - [ ] Dockerize
 - [ ] Create Deployment (Github Action)
+- [ ] Test Coverage
