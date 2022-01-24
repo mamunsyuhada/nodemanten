@@ -1,3 +1,7 @@
+.docker.env.sample
+.dockerignore
+.github
+*.md
 .env.*
 .dockervolume
 test
