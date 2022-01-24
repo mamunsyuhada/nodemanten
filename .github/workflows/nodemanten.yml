@@ -28,3 +28,16 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USER }}/nodemanten:latest
+      -
+        name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            whoami
+            ls -al
