@@ -1,4 +1,4 @@
-name: Dockerize nodemanten
+name: ci/cd nodemanten
 on:
   push:
     branches: [ main ]
