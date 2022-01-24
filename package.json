@@ -2,7 +2,7 @@
   "name": "nodemanten",
   "version": "0.0.1",
   "description": "my weeding's server side",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
     "start": "node bin/index.js",
     "dev": "npx nodemon bin/index.js",
