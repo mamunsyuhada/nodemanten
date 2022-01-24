@@ -39,7 +39,12 @@
     "morgan": "^1.10.0",
     "pretty-logger": "^0.1.2",
     "rate-limit-mongo": "^2.3.2",
-    "uuid": "^8.3.2"
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0",
+    "uuid": "^8.3.2",
+    "yamljs": "^0.3.0"
   },
-  "pre-commit": [ "lint" ]
+  "pre-commit": [
+    "lint"
+  ]
 }

@@ -6,7 +6,7 @@ const WishSchema = mongoose.Schema({
   wishId: { type: String, required: true },
   author: { type: String, required: true },
   attendace: {
-    type: [String],
+    type: String,
     required: true,
     enum: [
       'hadir',

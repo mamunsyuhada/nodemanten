@@ -3,7 +3,7 @@ const Model = require('../entity');
 
 const listWishes = async ({ q={}, sort, size, page, }) => {
   const data = await Model.aggregate([
-    { $match: q },
+    { $match: { ...q, isDeleted: false } },
     { $sort: sort },
     { $skip: size * (page - 1) },
     { $limit: size },
