@@ -36,6 +36,6 @@ npm i && npm run dev
 - [x] List wishes
 - [x] Bruteforce or Ratelimiter
 - [ ] Swagger APIs Documentation
-- [ ] Dockerize
-- [ ] Create Deployment (Github Action)
+- [x] Dockerize
+- [x] Create Deployment (Github Action)
 - [ ] Test Coverage
