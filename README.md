@@ -1,5 +1,7 @@
 # Node Manten
 
+![nodemanten-workflow](https://github.com/mamunsyuhada/nodemanten/actions/workflows/nodemanten.yml/badge.svg)
+
 ## Schema DB
 
 ### [----wishes's document----](https://github.com/mamunsyuhada/nodemanten/blob/main/bin/module/wish/entity.js)
