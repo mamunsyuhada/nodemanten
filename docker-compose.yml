@@ -3,7 +3,7 @@ services:
   mongodb:
     container_name: 'mongodb-nodemanten'
     image: mongo:5.0
-    restart: on-failure
+    restart: always
     ports:
       - ${MONGO_INITDB_PORT:-27018}:27017
     volumes:
@@ -23,6 +23,6 @@ services:
       - mongodb
     env_file:
       - ./.docker.env
-    restart: on-failure
+    restart: always
     stdin_open: true
     tty: true
