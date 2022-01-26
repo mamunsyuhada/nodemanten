@@ -41,4 +41,4 @@ jobs:
           script: |
             whoami
             ls -al
-            ${{ secrets.CMD_DEPLOY }}
+            cd /root/nodemanten && git pull origin main && docker-compose up --build -d --remove-orphans
