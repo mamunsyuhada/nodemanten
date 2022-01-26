@@ -14,7 +14,7 @@ services:
     env_file:
       - ./.docker.env
   nodemanten:
-    image: mamunsyuhada/reactmanten
+    image: mamunsyuhada/nodemanten
     container_name: nodemanten
     ports:
       - '${APP_PORT:-3001}:3001'
