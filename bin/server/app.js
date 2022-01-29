@@ -22,4 +22,10 @@ app.use(helmet());
 app.use(bodyParser.json({ type: 'application/json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use('/wish', wishRoute);
+app.use('/subscribe', subcribeRoute);
+// ----Swagger
+const swaggerRoute = require('../util/apiDoc');
+app.use('/api-docs', swaggerRoute);
+
 module.exports = app;
