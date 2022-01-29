@@ -41,3 +41,4 @@ jobs:
           script: |
             whoami
             ls -al
+            cd /root/nodemanten && git pull origin main && docker-compose up --build -d --remove-orphans
