@@ -3,21 +3,22 @@ const { v4: uuid } = require('uuid');
 const { ok, err } = require('../../../util/response');
 const Model = require('../entity');
 
-const postWish = async (payload) => {
+const subscribeEmail = async (payload) => {
   const data = await new Model({
-    wishId: uuid(),
+    subcribeId: uuid(),
     ...payload
   }).save();
 
   if(!data){
     return err({ message: 'failed to create a wish' });
   }
+  const { email } = data;
   return ok({
     data,
-    message: 'success to create a wish, thankyou'
+    message: `success to create a subcribe notification ${email}, thankyou`
   });
 };
 
 module.exports = {
-  postWish,
+  subscribeEmail,
 };

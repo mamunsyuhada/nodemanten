@@ -4,7 +4,8 @@ const methodOverride = require('method-override');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
-const wishRouter = require('../module/wish/router');
+const wishRoute = require('../module/wish/router');
+const subcribeRoute = require('../module/subcribe/router');
 
 const app = express();
 app.use(log('[:date[iso]] :method :url :status :response-time ms - :res[content-length]'));
@@ -21,5 +22,4 @@ app.use(helmet());
 app.use(bodyParser.json({ type: 'application/json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/wish', wishRouter);
 module.exports = app;

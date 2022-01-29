@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const moment = require('moment-timezone');
-const dateJakarta = moment.tz(Date.now(), 'Asia/Jakarta');
 
 const WishSchema = mongoose.Schema({
   wishId: { type: String, required: true },
@@ -16,8 +15,8 @@ const WishSchema = mongoose.Schema({
   },
   wish: { type: String, required: true },
   isDeleted: { type: Boolean, default: false },
-  createdAt: { type: Date, default: dateJakarta },
-  updatedAt: { type: Date, default: dateJakarta },
+  createdAt: { type: Date, default: moment.tz(Date.now(), 'Asia/Jakarta') },
+  updatedAt: { type: Date, default: moment.tz(Date.now(), 'Asia/Jakarta') },
 },{
   versionKey: false,
 });

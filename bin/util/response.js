@@ -42,6 +42,19 @@ const wrapper = (res, payload) => {
 };
 
 const send = async ({ req, res, domain, schema = {} }) => {
+  if(req.query.q){
+    req.query.q = JSON.parse(req.query.q);
+  }
+  if(req.query.sort){
+    req.query.sort = JSON.parse(req.query.sort);
+  }
+  if(req.query.size){
+    req.query.size = JSON.parse(req.query.size);
+  }
+  if(req.query.page){
+    req.query.page = JSON.parse(req.query.page);
+  }
+
   req.payload = { ...req.body, ...req.query, ...req.params };
   const { error, value } = schema.validate(req.payload);
   if (error) {
