@@ -40,5 +40,5 @@ jobs:
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             whoami
-            ls -al
+            ls -al && docker rmi mamunsyuhada/reactmanten -f
             cd /root/nodemanten && git pull origin main && docker-compose up --build -d --remove-orphans
