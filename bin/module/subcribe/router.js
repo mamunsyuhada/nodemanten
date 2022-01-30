@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const apiHandler = require('./apiHandler');
-const bruteForce = require('../../middleware/bruteLimiter');
+const apiLimiter = require('../../middleware/rateLimiter');
 
-router.post('/', bruteForce.prevent, apiHandler.addEmailSubscribe);
+router.post('/', apiLimiter(30, 1, 'tunggu sebentar untuk mengumpulkan email'), apiHandler.addEmailSubscribe);
 
 module.exports = router;
