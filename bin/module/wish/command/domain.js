@@ -20,7 +20,12 @@ const postWish = async (payload) => {
   if (!data) {
     return err({ message: 'failed to create a wish' });
   }
-  telegram.sendMessage({message: `delete link: https:${appDomain}/wish/delete/${wishId}`});
+  telegram.sendMessage({
+    message: `
+      ${author} - ${wish}
+      delete link: https:${appDomain}/wish/delete/${wishId}
+      `
+  });
   return ok({
     data: { author, attendace, wish },
     message: 'success to create a wish, thankyou'
