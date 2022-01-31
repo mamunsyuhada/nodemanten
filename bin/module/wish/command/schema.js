@@ -6,6 +6,11 @@ const postWish =  joi.object({
   wish: joi.string().min(1).max(256).required(),
 });
 
+const deleteWish = joi.object({
+  wishId: joi.string().guid().required(),
+});
+
 module.exports = {
   postWish,
+  deleteWish,
 };

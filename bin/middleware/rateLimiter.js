@@ -1,5 +1,5 @@
 const rateLimit = require('express-rate-limit');
-const { err, wrapper } = require('../util/response');
+const { err, wrapper, ErrorResponsesCode } = require('../util/response');
 
 module.exports = (minutes, max, message) => {
   return rateLimit({
@@ -8,7 +8,7 @@ module.exports = (minutes, max, message) => {
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     handler: (_, res) => {
-      return wrapper(res, err({ message }));
+      return wrapper(res, err({ code: ErrorResponsesCode.Forbidden, message }));
     }
   });
 };

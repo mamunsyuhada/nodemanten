@@ -5,6 +5,8 @@ const commandDomain = require('./command/domain');
 const querySchema = require('./query/schema');
 const queryDomain = require('./query/domain');
 
+// --- Domain
+
 const postWish = (req, res) => {
   return response.send({
     req, res,
@@ -12,6 +14,16 @@ const postWish = (req, res) => {
     domain: commandDomain.postWish,
   });
 };
+
+const deleteWish = (req, res) => {
+  return response.send({
+    req, res,
+    schema: commandSchema.deleteWish,
+    domain: commandDomain.deleteWish,
+  });
+};
+
+// --- Query
 
 const listWishes = (req, res) => {
   return response.send({
@@ -23,5 +35,6 @@ const listWishes = (req, res) => {
 
 module.exports = {
   postWish,
+  deleteWish,
   listWishes,
 };

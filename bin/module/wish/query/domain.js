@@ -2,8 +2,9 @@ const { pagination, err, ErrorResponsesCode } = require('../../../util/response'
 const Model = require('../entity');
 
 const listWishes = async ({ q={}, sort, size, page, }) => {
+  q = { ...q, isDeleted: false };
   const data = await Model.aggregate([
-    { $match: { ...q, isDeleted: false } },
+    { $match: q },
     { $sort: sort },
     { $skip: size * (page - 1) },
     { $limit: size },
