@@ -22,10 +22,11 @@ const postWish = async (payload) => {
   }
   telegram.sendMessage({
     message: `
-      ${author} - ${wish}
+      author: ${author}
+      wish: ${wish}
       delete link: https:${appDomain}/wish/delete/${wishId}
       undelete link: https:${appDomain}/wish/undelete/${wishId}
-      `
+    `
   });
   return ok({
     data: { author, attendace, wish },
