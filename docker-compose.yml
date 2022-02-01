@@ -17,7 +17,7 @@ services:
     build: .
     # image: nodemanten
     image: mamunsyuhada/nodemanten
-    container_name: mamunsyuhada/nodemanten
+    container_name: nodemanten
     ports:
       - '${APP_PORT:-3001}:3001'
     depends_on:
