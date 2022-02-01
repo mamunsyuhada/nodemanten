@@ -33,7 +33,7 @@ const postWish = async (payload) => {
 };
 
 const deleteWish = async ({ wishId }) => {
-  const data = await Model.findOneAndUpdate( { wishId }, { isDeleted: true } );
+  const data = await Model.findOneAndUpdate( { is deleted: false, wishId }, { isDeleted: true } );
   if (!data) {
     return err({ message: 'failed to create a wish' });
   }
