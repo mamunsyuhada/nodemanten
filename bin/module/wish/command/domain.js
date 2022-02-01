@@ -30,7 +30,7 @@ const postWish = async (payload) => {
     `
   });
   return ok({
-    data: { author, attendace, wish },
+    data,
     message: 'success to create a wish, thankyou'
   });
 };
