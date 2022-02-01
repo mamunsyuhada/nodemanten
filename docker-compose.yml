@@ -14,10 +14,10 @@ services:
     env_file:
       - ./.docker.env
   nodemanten:
-    # build: .
+    build: .
     # image: nodemanten
     image: mamunsyuhada/nodemanten
-    container_name: nodemanten
+    container_name: mamunsyuhada/nodemanten
     ports:
       - '${APP_PORT:-3001}:3001'
     depends_on:

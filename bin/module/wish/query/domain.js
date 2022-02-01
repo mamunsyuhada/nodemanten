@@ -8,6 +8,9 @@ const listWishes = async ({ q={}, sort, size, page, }) => {
     { $sort: sort },
     { $skip: size * (page - 1) },
     { $limit: size },
+    {
+      $project: { _id: 0, wish: 1, author: 1, attendace: 1, createdAt: 1 }
+    }
   ]);
   if(!data){
     return err({ message: 'error to list wish, thankyou', code: ErrorResponsesCode.Conflict });

@@ -14,7 +14,8 @@ const postWish = async (payload) => {
   const wishId = uuid();
   const data = await new Model({
     wishId,
-    ...payload
+    ...payload,
+    isDeleted: false,
   }).save();
 
   if (!data) {
