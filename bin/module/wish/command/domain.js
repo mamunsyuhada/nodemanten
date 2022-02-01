@@ -42,7 +42,7 @@ const deleteWish = async ({ wishId }) => {
 };
 
 const undeleteWish = async ({ wishId }) => {
-  const data = await Model.findOneAndUpdate( { wishId }, { isDeleted: false } );
+  const data = await Model.findOneAndUpdate( { isDeleted: true, wishId }, { isDeleted: false } );
   if (!data) {
     return err({ message: 'failed to undelete a wish' });
   }
