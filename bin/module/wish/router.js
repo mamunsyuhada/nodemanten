@@ -9,5 +9,6 @@ router.post(
 );
 router.get('/', apiHandler.listWishes);
 router.get('/delete/:wishId', apiHandler.deleteWish);
+router.get('/undelete/:wishId', apiHandler.undeleteWish);
 
 module.exports = router;

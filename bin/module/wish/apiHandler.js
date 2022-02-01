@@ -23,6 +23,13 @@ const deleteWish = (req, res) => {
   });
 };
 
+const undeleteWish = (req, res) => {
+  return response.send({
+    req, res,
+    schema: commandSchema.deleteWish,
+    domain: commandDomain.undeleteWish,
+  });
+};
 // --- Query
 
 const listWishes = (req, res) => {
@@ -37,4 +44,5 @@ module.exports = {
   postWish,
   deleteWish,
   listWishes,
+  undeleteWish
 };

@@ -24,6 +24,7 @@ const postWish = async (payload) => {
     message: `
       ${author} - ${wish}
       delete link: https:${appDomain}/wish/delete/${wishId}
+      undelete link: https:${appDomain}/wish/undelete/${wishId}
       `
   });
   return ok({
@@ -35,12 +36,21 @@ const postWish = async (payload) => {
 const deleteWish = async ({ wishId }) => {
   const data = await Model.findOneAndUpdate( { wishId }, { isDeleted: true } );
   if (!data) {
-    return err({ message: 'failed to create a wish' });
+    return err({ message: 'failed to delete a wish' });
   }
-  return ok({ data, message: 'success to create a wish, thankyou' });
+  return ok({ data, message: 'success to delete a wish, thankyou' });
+};
+
+const undeleteWish = async ({ wishId }) => {
+  const data = await Model.findOneAndUpdate( { wishId }, { isDeleted: false } );
+  if (!data) {
+    return err({ message: 'failed to undelete a wish' });
+  }
+  return ok({ data, message: 'success to undelete a wish, thankyou' });
 };
 
 module.exports = {
   postWish,
   deleteWish,
+  undeleteWish,
 };
