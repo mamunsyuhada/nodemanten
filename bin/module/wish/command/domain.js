@@ -34,7 +34,7 @@ const postWish = async (payload) => {
 };
 
 const deleteWish = async ({ wishId }) => {
-  const data = await Model.findOneAndUpdate( { wishId }, { isDeleted: true } );
+  const data = await Model.findOneAndUpdate( { isDeleted: false, wishId }, { isDeleted: true } );
   if (!data) {
     return err({ message: 'failed to delete a wish' });
   }
