@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const { telegramToken, telegramChatId } = require('../config/global');
 
-const bot = new TelegramBot(telegramToken, { polling: true });
+const bot = new TelegramBot(telegramToken, { polling: false });
 
 const init = async () => {
   await sendMessage({});
