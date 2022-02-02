@@ -25,7 +25,8 @@ const postWish = async (payload) => {
   message += `- wish: ${wish}\n`;
   message += `- delete link: https:${appDomain}/wish/delete/${wishId}\n`;
   message += `- undelete link: https:${appDomain}/wish/undelete/${wishId}\n`;
-  telegram.sendMessage({ message });
+  message += ` - raw ${data}`;
+  await telegram.sendMessage({ message });
 
   return ok({
     data,
