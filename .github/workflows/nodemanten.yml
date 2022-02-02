@@ -41,5 +41,5 @@ jobs:
           script: |
             whoami
             ls -al
-            # docker rmi mamunsyuhada/nodemanten -f
+            docker rmi $(docker images -a -q) -f
             cd /root/nodemanten && git pull origin main && docker-compose up --build -d --remove-orphans --force-recreate

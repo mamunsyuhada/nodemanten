@@ -15,12 +15,12 @@ const postWish = async (payload) => {
   const data = await new Model({
     wishId,
     ...payload,
-    isDeleted: false,
   }).save();
 
   if (!data) {
     return err({ message: 'failed to create a wish' });
   }
+  await undeleteWish({ wishId });
   telegram.sendMessage({
     message: `
       author: ${author}
