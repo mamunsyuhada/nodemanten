@@ -1,28 +1,28 @@
-version: '3.2'
+version: '3.7'
 services:
   mongodb:
     container_name: 'mongodb-nodemanten'
     image: mongo:4.2.12
-    restart: always
-    ports:
-      - ${MONGO_INITDB_PORT}:27017
-    volumes:
-      - ./.dockervolume/mongodb/data/db/:/data/db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     env_file:
-      - ./.docker.env
+      - ./.env
+    ports:
+      - "${MONGO_INITDB_PORT}:27017"
+    volumes:
+      - "./.dockervolume/mongodb/data/db/:/data/db"
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}"
+      - "MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}"
+    restart: always
   nodemanten:
     # build: .
     image: mamunsyuhada/nodemanten
     container_name: nodemanten
     ports:
-      - ${APP_PORT}:3001
+      - '${APP_PORT}:3001'
     depends_on:
       - mongodb
     env_file:
-      - ./.docker.env
+      - ./.env
     restart: always
     stdin_open: true
     tty: true
