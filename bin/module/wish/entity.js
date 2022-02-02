@@ -21,8 +21,8 @@ const WishSchema = mongoose.Schema({
     default: false,
   },
 },{
-  timestamps: true,
   versionKey: false,
+  timestamps: true,
 });
 
 module.exports = mongoose.model('wishes', WishSchema);
