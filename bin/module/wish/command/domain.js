@@ -21,14 +21,13 @@ const postWish = async (payload) => {
     return err({ message: 'failed to create a wish' });
   }
   await undeleteWish({ wishId });
-  telegram.sendMessage({
-    message: `
-      author: ${author}
-      wish: ${wish}
-      delete link: https:${appDomain}/wish/delete/${wishId}
-      undelete link: https:${appDomain}/wish/undelete/${wishId}
-    `
-  });
+
+  let message = `author: ${author}\n`;
+  message += `wish: ${wish}`;
+  message += `delete link: https:${appDomain}/wish/delete/${wishId}`;
+  message += `undelete link: https:${appDomain}/wish/undelete/${wishId}`;
+  telegram.sendMessage({ message });
+
   return ok({
     data,
     message: 'success to create a wish, thankyou'
@@ -36,7 +35,7 @@ const postWish = async (payload) => {
 };
 
 const deleteWish = async ({ wishId }) => {
-  const data = await Model.findOneAndUpdate( { isDeleted: false, wishId }, { isDeleted: true } );
+  const data = await Model.findOneAndUpdate( { wishId }, { isDeleted: true } );
   if (!data) {
     return err({ message: 'failed to delete a wish' });
   }
@@ -44,7 +43,7 @@ const deleteWish = async ({ wishId }) => {
 };
 
 const undeleteWish = async ({ wishId }) => {
-  const data = await Model.findOneAndUpdate( { isDeleted: true, wishId }, { isDeleted: false } );
+  const data = await Model.findOneAndUpdate( { wishId }, { isDeleted: false } );
   if (!data) {
     return err({ message: 'failed to undelete a wish' });
   }

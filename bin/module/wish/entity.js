@@ -13,7 +13,7 @@ const WishSchema = mongoose.Schema({
     ]
   },
   wish: { type: String, required: true },
-  isDeleted: { type: Boolean },
+  isDeleted: { type: Boolean, default: false },
 },{
   timestamps: true,
   versionKey: false,
