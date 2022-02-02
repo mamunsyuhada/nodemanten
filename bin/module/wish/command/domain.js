@@ -20,7 +20,6 @@ const postWish = async (payload) => {
   if (!data) {
     return err({ message: 'failed to create a wish' });
   }
-  await undeleteWish({ wishId });
 
   let message = `author: ${author}\n`;
   message += `wish: ${wish}`;

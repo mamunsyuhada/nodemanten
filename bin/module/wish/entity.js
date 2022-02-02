@@ -12,8 +12,14 @@ const WishSchema = mongoose.Schema({
       'mungkin hadir',
     ]
   },
-  wish: { type: String, required: true },
-  isDeleted: { type: Boolean, default: false },
+  wish: {
+    type: String,
+    required: true
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false,
+  },
 },{
   timestamps: true,
   versionKey: false,
