@@ -8,7 +8,7 @@ const init = async () => {
 };
 
 const sendMessage = async ({ chatId = telegramChatId, message = `server running ${new Date()}` }) => {
-  await bot.sendMessage(chatId, message);
+  bot.sendMessage(chatId, message);
 };
 
 module.exports = {

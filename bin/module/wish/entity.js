@@ -20,6 +20,10 @@ const WishSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  userAgent: {
+    type: String,
+    optional: true
+  }
 },{
   versionKey: false,
   timestamps: true,

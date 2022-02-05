@@ -55,7 +55,7 @@ const send = async ({ req, res, domain, schema = {} }) => {
     req.query.page = JSON.parse(req.query.page);
   }
 
-  req.payload = { ...req.body, ...req.query, ...req.params };
+  req.payload = { ...req.body, ...req.query, ...req.params, userAgent: req.get('User-Agent') };
   const { error, value } = schema.validate(req.payload);
   if (error) {
     const message = error.details[0].message.replace(/"/g, '');

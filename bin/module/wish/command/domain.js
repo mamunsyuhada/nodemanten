@@ -11,6 +11,7 @@ const postWish = async (payload) => {
   if (checkWish) {
     return err({ code: ErrorResponsesCode.Conflict, message: 'buat varian pesan lainnya' });
   }
+
   const wishId = uuid();
   const data = await new Model({
     wishId,
@@ -26,7 +27,7 @@ const postWish = async (payload) => {
   message += `- delete link: https:${appDomain}/wish/delete/${wishId}\n`;
   message += `- undelete link: https:${appDomain}/wish/undelete/${wishId}\n`;
   message += ` - raw ${data}`;
-  await telegram.sendMessage({ message });
+  telegram.sendMessage({ message });
 
   return ok({
     data,

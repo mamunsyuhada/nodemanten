@@ -5,6 +5,7 @@ const postWish =  joi.object({
   attendace: joi.string().valid('hadir', 'tidak hadir', 'mungkin hadir').required(),
   wish: joi.string().min(1).max(256).required(),
   isDeleted: joi.boolean().forbidden().default(false),
+  userAgent: joi.string().optional(),
 });
 
 const deleteWish = joi.object({
