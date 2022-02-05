@@ -10,6 +10,7 @@ const postWish =  joi.object({
 
 const deleteWish = joi.object({
   wishId: joi.string().guid().required(),
+  userAgent: joi.string().optional(),
 });
 
 module.exports = {
