@@ -26,7 +26,7 @@ const postWish = async (payload) => {
   message += `- wish: ${wish}\n`;
   message += `- delete link: https:${appDomain}/wish/delete/${wishId}\n`;
   message += `- undelete link: https:${appDomain}/wish/undelete/${wishId}\n`;
-  message += ` - raw ${data}`;
+  message += `- raw ${data}`;
   telegram.sendMessage({ message });
 
   return ok({
@@ -40,7 +40,8 @@ const deleteWish = async ({ wishId }) => {
   if (!data) {
     return err({ message: 'failed to delete a wish' });
   }
-  return ok({ data, message: 'success to delete a wish, thankyou' });
+  // return ok({ data, message: 'success to delete a wish, thankyou' });
+  return ok({ redirect: 'https://heningimam.com' });
 };
 
 const undeleteWish = async ({ wishId }) => {
@@ -48,7 +49,8 @@ const undeleteWish = async ({ wishId }) => {
   if (!data) {
     return err({ message: 'failed to undelete a wish' });
   }
-  return ok({ data, message: 'success to undelete a wish, thankyou' });
+  // return ok({ data, message: 'success to undelete a wish, thankyou' });
+  return ok({ redirect: 'https://heningimam.com' });
 };
 
 module.exports = {

@@ -18,8 +18,8 @@ const err = ({ code = ErrorResponsesCode.BadRequest, message = 'somethings get e
   return { error: true, data: null, code, message };
 };
 
-const ok = ({ data = '', code = OkResponsesCode.Ok, message = 'your request is success' }) => {
-  return { error: null, data, code, message, };
+const ok = ({ data = '', code = OkResponsesCode.Ok, message = 'your request is success', redirect=false }) => {
+  return { error: null, data, code, message, redirect};
 };
 
 const pagination = ({
@@ -38,6 +38,10 @@ const pagination = ({
 };
 
 const wrapper = (res, payload) => {
+  const { redirect } = payload;
+  if(redirect){
+    return res.redirect(redirect);
+  }
   return res.status(payload.code).send(payload);
 };
 
