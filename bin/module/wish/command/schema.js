@@ -1,7 +1,7 @@
 const joi = require('joi');
 
 const postWish =  joi.object({
-  author: joi.string().min(1).max(64).required(),
+  author: joi.string().min(1).max(128).required(),
   attendace: joi.string().valid('hadir', 'tidak hadir', 'mungkin hadir').required(),
   wish: joi.string().min(1).max(256).required(),
   isDeleted: joi.boolean().forbidden().default(false),
